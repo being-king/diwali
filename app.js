@@ -24,9 +24,13 @@ app.post("/",function(req,res){
     let url="https://killer-abhi.github.io/diwali/"+name.replaceAll(' ','-');
     res.render("main",{sender:name,link:url,display1:"none",display2:"flex"});
 })
-app.listen(3000,function(err){
+let port=process.env.PORT;
+if(port==null || port==""){
+    port=3000;
+}
+app.listen(port,function(err){
     if(!err){
-        console.log("Server Started at Port 3000");
+        console.log("Server Started at Port");
     }
     else{
         console.log(err);
